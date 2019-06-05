@@ -80,4 +80,58 @@ def new_comment(id):
         db.session.commit()
         
     comment = Comment.query.filter_by(post_id=id).all()
-    return render_template('new_comment.html', title='New Post', comment=comment,comment_form=form, post ='New Post')    
+    return render_template('new_comment.html', title='New Post', comment=comment,comment_form=form, post ='New Post')
+
+@main.route('/management/new<int:id>', methods=['GET','POST'])
+@login_required
+def management(category = "Management"):
+
+    management = Post.query.filter_by(category = "Management")
+    
+    title = "Management"
+    return render_template('management.html', management= management, title=title, post ='New Post')
+
+@main.route('/hr/new<int:id>', methods=['GET','POST'])
+@login_required
+def hr(category = "hr"):
+
+    hr = Post.query.filter_by(category = "HR")
+    
+    title = "HR"
+    return render_template('hr.html', hr= hr, title=title, post ='New Post')
+
+@main.route('/finance/new<int:id>', methods=['GET','POST'])
+@login_required
+def finance(category = "Finance"):
+
+    finance = Post.query.filter_by(category = "Finance")
+    
+    title = "Finance"
+    return render_template('finance.html', finance= finance, title=title, post ='New Post')
+
+@main.route('/maintenance/new<int:id>', methods=['GET','POST'])
+@login_required
+def maintenance(category = "Maintenance"):
+
+    maintenance = Post.query.filter_by(category = "Maintenance")
+    
+    title = "Maintenance"
+    return render_template('maintenance.html', maintenance= maintenance, title=title, post ='New Post')
+
+@main.route('/thehall/new<int:id>', methods=['GET','POST'])
+@login_required
+def thehall(category = "Thehall"):
+
+    management = Post.query.filter_by(category = "Management")
+    
+    title = "The Hall"
+    return render_template('index.html', management= management, title=title, post ='New Post')
+
+@main.route('/delete/<int:id>',methods=['GET','POST'])
+@login_required
+def delete(id):
+   del_post = Post.query.filter_by(id=id).first()
+   db.session.delete(del_post)
+   db.session.commit()
+   
+   return redirect(url_for('main.index'))    
