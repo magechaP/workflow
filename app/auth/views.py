@@ -42,4 +42,42 @@ def update_profile(uname):
 
         return redirect(url_for('.profile',uname=user.username))
 
-    return render_template('profile/update.html',form =form)    
+    return render_template('profile/update.html',form =form)
+
+@main.route('/post/new', methods=['GET','POST'])
+@login_required
+def new_post():
+    form = PostForm()
+
+    if form.validate_on_submit():
+
+        title=form.title.data
+        content=form.content.data
+        category=form.category.data
+        post = Post(title=title, content=content,category=category)
+        # post.save_post(post)
+        db.session.add(post)
+        db.session.commit()
+
+        flash('Your post has been created!', 'success')
+        return redirect(url_for('main.index', id=post.id))
+
+    return render_template('new_post.html', title='New Post', post_form=form, post ='New Post')
+
+@main.route('/comment/new/<int:id>', methods=['GET','POST'])
+@login_required
+def new_comment(id):
+    form = CommentForm()
+
+    if form.validate_on_submit():
+        
+        comment_content = form.comment.data
+
+        comment = Comment(comment_content= comment_content, post_id=id)
+
+        # post.save_post(post)
+        db.session.add(comment)
+        db.session.commit()
+        
+    comment = Comment.query.filter_by(post_id=id).all()
+    return render_template('new_comment.html', title='New Post', comment=comment,comment_form=form, post ='New Post')    
