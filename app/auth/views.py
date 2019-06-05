@@ -7,3 +7,14 @@ from ..models import User, Post, Comment
 from .forms import UpdateProfile, PostForm , CommentForm
 from .. import db, photos
 app = Flask(__name__)
+
+# views
+@main.route("/")
+def index():
+   '''
+   title = "Work Flow"
+   '''
+   title = 'Work Flow'
+   posts = Post.query.all()
+
+   return render_template('index.html', title= title, posts = posts)
