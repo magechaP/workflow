@@ -12,4 +12,7 @@ class CommentForm(FlaskForm):
     comment = TextAreaField('comment of the post')
     submit = SubmitField('Submit')
 
-    
+class UpdateProfile(FlaskForm):
+    bio = TextAreaField('Tell us more about yourself')
+    submit = SubmitField('Submit')    
+
