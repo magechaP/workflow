@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+{% block content%}
+{% if title %}
+    <h1>{{title}}</h1>
+    {% else %}
+    <h1>This is kuwl</h1>
+    {% endif %}
+    <button><a href="{{ url_for('main.new_management') }}">MANAGEMENT</a></button>
+    <button><a href="{{ url_for('main.new_finance') }}">FINANCE</a></button>
+    <button><a href="{{ url_for('main.new_hr') }}">HR</a></button>
+    <button><a href="{{ url_for('main.new_maintenance') }}">MAINTENANCE</a></button>
+    {%endblock%}
