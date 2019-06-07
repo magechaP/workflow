@@ -28,8 +28,11 @@ end
 
 # unset irrelevant variables
 deactivate nondestructive
+ rewel
+set -gx VIRTUAL_ENV "/home/petermagecha/Documents/workflow/virtual"
 
-set -gx VIRTUAL_ENV "/home/xystus/Documents/workflow/workflow/virtual"
+
+ xystus
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
@@ -52,7 +55,10 @@ if test -z "$VIRTUAL_ENV_DISABLE_PROMPT"
         set -l old_status $status
 
         # Prompt override?
-        if test -n "(virtual) "
+ rewel
+        if test -n "(virtual) "            
+
+ xystus
             printf "%s%s" "(virtual) " (set_color normal)
         else
             # ...Otherwise, prepend env
