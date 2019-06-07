@@ -1,0 +1,46 @@
+{% macro displayManagementComments(comments) %}
+        {% for comment in comments %}
+
+          <div class="col-sm-6">            
+            <h3 style="font-weight:bold;color: aquamarine">{{comment.title}}</h3>            
+            <h3 style="font-weight:bold;color: chartreuse"><strong>Department: &nbsp;</strong>{{comment.department}}</h3>
+            
+            <div class="well" style="height:200px">
+                <p style="font-weight:bold">{{comment.description | truncate(100)}}</p>
+            </div>
+          </div>
+        {% endfor %}
+{% endmacro %}
+{% macro displayFinanceComments(comments) %}
+        {% for comment in comments %}
+          <div class="col-sm-6">            
+            <h3 style="font-weight:bold;color: aquamarine">{{comment.title}}</h3>            
+                     
+            <div class="well" style="height:200px">
+                <p style="font-weight:bold">{{comment.description | truncate(100)}}</p>
+            </div>
+          </div>
+        {% endfor %}
+{% endmacro %}
+{% macro displayHrComments(comments) %}
+        {% for comment in comments %}
+          <div class="col-sm-6">            
+            <h3 style="font-weight:bold;color: aquamarine">{{comment.title}}</h3>           
+                   
+            <div class="well" style="height:200px">
+                <p style="font-weight:bold">{{comment.description | truncate(100)}}</p>
+            </div>
+          </div>
+        {% endfor %}
+{% endmacro %}
+{%macro displayMaintenanceComments(comments)%}
+        {% for comment in comments %}
+          <div class="col-sm-6">            
+            <h3 style="font-weight:bold;color: aquamarine">{{comment.title}}</h3>           
+                   
+            <div class="well" style="height:200px">
+                <p style="font-weight:bold">{{comment.description | truncate(100)}}</p>
+            </div>
+          </div>
+        {% endfor %}
+{% endmacro %}

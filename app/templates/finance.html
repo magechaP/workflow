@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block styles%}
+    {{ super() }}
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Pacifico|Stylish&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='images/hello.jpg') }}">
+{% endblock %}
+{% block content %}      
+       
+    <div  style="margin: 25px;background-color: black" class="well">
+            <div class="row">
+                    <div style="font-family: 'Cinzel', serif; margin-top: 75px;" class="col-md-4" >
+                        <h1 style="color: Red">Post Concern Here:</h1>
+                        <div style="color: chartreuse">
+                                {{wtf.quick_form(finance_form)}}
+                        </div>        
+                    </div>
+                    <!-- <div class="col-md-1"></div> -->
+                    <div class="col-md-8">
+                            {{macro.displayFinanceComments(comments)}}
+                    </div>
+                    
+            </div>
+      
+    </div>
+    
+    
+{% endblock %}
