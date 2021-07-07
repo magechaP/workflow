@@ -1,4 +1,8 @@
-#!/home/xystus/Documents/workflow/workflow/virtual/bin/python3
+ rewel
+#!/home/petermagecha/Documents/workflow/virtual/bin/python3
+
+
+ xystus
 
 import sys
 from os.path import join, dirname, exists
